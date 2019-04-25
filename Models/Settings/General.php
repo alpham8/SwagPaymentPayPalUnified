@@ -111,6 +111,18 @@ class General extends ModelEntity
     private $advertiseReturns;
 
     /**
+     * @var bool
+     * @ORM\Column(name="activate_change_refund_state", type="boolean", nullable=false)
+     */
+    private $activateChangeRefundState;
+
+    /**
+     * @var int
+     * @ORM\Column(name="refund_state", type="integer")
+     */
+    private $refundState;
+
+    /**
      * @return int
      */
     public function getId()
@@ -348,6 +360,38 @@ class General extends ModelEntity
     public function setLandingPageType($landingPageType)
     {
         $this->landingPageType = $landingPageType;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActivateChangeRefundState()
+    {
+        return $this->activateChangeRefundState;
+    }
+
+    /**
+     * @param bool $activateChangeRefundState
+     */
+    public function setActivateChangeRefundState($activateChangeRefundState)
+    {
+        $this->activateChangeRefundState = $activateChangeRefundState;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRefundState()
+    {
+        return $this->refundState;
+    }
+
+    /**
+     * @param int $refundState
+     */
+    public function setRefundState($refundState)
+    {
+        $this->refundState = $refundState;
     }
 
     /**
