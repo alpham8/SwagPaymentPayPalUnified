@@ -10,6 +10,7 @@ namespace SwagPaymentPayPalUnified\Models\Settings;
 
 use Doctrine\ORM\Mapping as ORM;
 use Shopware\Components\Model\ModelEntity;
+use Shopware\Models\Order\Status;
 
 /**
  * @ORM\Entity()
@@ -121,6 +122,19 @@ class General extends ModelEntity
      * @ORM\Column(name="refund_state", type="integer")
      */
     private $refundState;
+
+    /**
+     * @var string
+     */
+    private $refundStateTranslation;
+
+    /**
+     * @var Status
+     *
+     * @ORM\OneToOne(targetEntity="Shopware\Models\Order\Status")
+     * @ORM\JoinColumn(name="refund_state", referencedColumnName="id")
+     */
+    private $refundStateModel;
 
     /**
      * @return int
@@ -392,6 +406,38 @@ class General extends ModelEntity
     public function setRefundState($refundState)
     {
         $this->refundState = $refundState;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRefundStateTranslation()
+    {
+        return $this->refundStateTranslation;
+    }
+
+    /**
+     * @param string $refundStateTranslation
+     */
+    public function setRefundStateTranslation($refundStateTranslation)
+    {
+        $this->refundStateTranslation = $refundStateTranslation;
+    }
+
+    /**
+     * @return Status
+     */
+    public function getRefundStateModel()
+    {
+        return $this->refundStateModel;
+    }
+
+    /**
+     * @param Status $refundStateModel
+     */
+    public function setRefundStateModel(Status $refundStateModel)
+    {
+        $this->refundStateModel = $refundStateModel;
     }
 
     /**

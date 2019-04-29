@@ -83,7 +83,7 @@ Ext.define('Shopware.apps.PaypalUnifiedSettings.view.tabs.General', {
             me.createActivationContainer(),
             me.createRestContainer(),
             me.createBehaviorContainer(),
-            me.createRedundStateChangeContainer(),
+            me.createRefundStateChangeContainer(),
             me.createErrorHandlingContainer()
         ];
     },
@@ -250,7 +250,7 @@ Ext.define('Shopware.apps.PaypalUnifiedSettings.view.tabs.General', {
      *
      * @returns { Ext.form.FieldSet }
      */
-    createRedundStateChangeContainer: function() {
+    createRefundStateChangeContainer: function() {
         var me = this;
 
         me.refundStateChangeContainer = Ext.create('Ext.form.FieldSet', {
@@ -271,7 +271,7 @@ Ext.define('Shopware.apps.PaypalUnifiedSettings.view.tabs.General', {
                     fieldLabel: '{s name="fieldset/refundStateChange/state"}Payment state to set{/s}',
                     store: Ext.create('Shopware.apps.PaypalUnifiedSettings.store.RefundStateChange'),
                     valueField: 'id',
-                    value: 20
+                    displayField: 'description'
                 }
             ]
         });

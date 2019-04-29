@@ -6,13 +6,16 @@ Ext.define('Shopware.apps.PaypalUnifiedSettings.store.RefundStateChange', {
 
     fields: [
         { name: 'id', type: 'int' },
-        { name: 'text', type: 'string' }
+        { name: 'description', type: 'string' }
     ],
 
-    data: [
-        { id: 12, text: '{s name="completely_paid"}Completely paid{/s}' },
-        { id: 17, text: '{s name="open"}Open{/s}' },
-        { id: 20, text: '{s name="re_crediting"}Re-crediting{/s}' },
-        { id: 35, text: '{s name="the_process_has_been_cancelled"}The process has been cancelled.{/s}' },
-    ]
+    proxy: {
+        type: 'ajax',
+        url: '{url controller="PaypalUnifiedGeneralSettings" action="getPaymentState"}',
+        reader: {
+            type: 'json',
+            root: 'data',
+            totalProperty: 'total'
+        }
+    }
 });
