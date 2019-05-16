@@ -13,8 +13,14 @@
     <compatibility minVersion="5.2.0"/>
 
     <changelog version="2.2.1">
-        <changes lang="de">PT-10471 - Ajax Calls des Plugins verbessert;</changes>
-        <changes lang="en">PT-10471 - Improve ajax calls of the plugin;</changes>
+        <changes lang="de">
+            Rückerstattungen Statusänderungen einstellbar;
+            PT-10471 - Ajax Calls des Plugins verbessert;
+        </changes>
+        <changes lang="en">
+            Refunds state are now configurable (what should happen on refunding?);
+            PT-10471 - Improve ajax calls of the plugin;
+        </changes>
     </changelog>
 
     <changelog version="2.2.0">
